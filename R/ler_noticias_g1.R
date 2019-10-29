@@ -34,7 +34,7 @@ ler_noticias_g1<-function(arquivos = NULL, diretorio = "."){
 
     data_publicacao <- xml2::xml_find_first(x,'//*[@itemprop="datePublished"]') %>%
       xml2::xml_attr("datetime") %>%
-      as_datetime()
+      lubridate::as_datetime()
 
     data_atualizacao <- xml2::xml_find_first(x,'//*[@itemprop="dateModified"]') %>%
       xml2::xml_attr("datetime") %>%
