@@ -5,15 +5,50 @@
 
 <!-- badges: start -->
 
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/jjesusfilho/g1?branch=master&svg=true)](https://ci.appveyor.com/project/jjesusfilho/g1)
+[![Travis build
+status](https://travis-ci.org/jjesusfilho/g1.svg?branch=master)](https://travis-ci.org/jjesusfilho/g1)
 <!-- badges: end -->
 
-The goal of g1 is to …
+Funções para baixar e organizar as notícias do G1
 
-## Installation
-
-You can install the released version of g1 from
-[CRAN](https://CRAN.R-project.org) with:
+## Instalação
 
 ``` r
-install.packages("g1")
+devtools::install_github("jjesusfilho/g1")
 ```
+
+## Baixar as páginas
+
+``` r
+library(g1)
+dir.create("paginas")
+
+baixar_paginas_g1(diretorio="paginas")
+```
+
+## Ler as urls das notícias
+
+``` r
+urls<- ler_urls_g1(diretorio="paginas")
+```
+
+## Baixar notícias
+
+``` r
+dir.create("noticias")
+baixar_noticias_g1(urls, diretorio="noticias")
+```
+
+## Ler as notícias
+
+``` r
+noticias <- ler_noticias_g1(diretorio="noticias')
+```
+
+# Código de Conduta
+
+Please note that the ‘g1’ project is released with a [Contributor Code
+of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you
+agree to abide by its terms.
